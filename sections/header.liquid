@@ -9,11 +9,18 @@
     </a>
 
     <nav class="main-nav" role="navigation">
-      {% for link in section.settings.menu.links %}
-        <a href="{{ link.url }}" class="nav-link{% if link.active %} active{% endif %}">
-          {{ link.title }}
-        </a>
-      {% endfor %}
+      {% if section.settings.menu.links.size > 0 %}
+        {% for link in section.settings.menu.links %}
+          <a href="{{ link.url }}" class="nav-link{% if link.active %} active{% endif %}">
+            {{ link.title }}
+          </a>
+        {% endfor %}
+      {% else %}
+        <a href="/account" class="nav-link">My account</a>
+        <a href="/collections" class="nav-link">Shop by Brand</a>
+        <a href="/cart" class="nav-link">Cart</a>
+        <a href="/checkout" class="nav-link">Checkout</a>
+      {% endif %}
     </nav>
 
     <button class="mobile-menu-toggle" aria-label="Menu" aria-expanded="false">

@@ -13,9 +13,16 @@
     <hr class="footer-divider">
 
     <nav class="footer-nav">
-      {% for link in section.settings.menu.links %}
-        <a href="{{ link.url }}" class="footer-nav-link">{{ link.title }}</a>
-      {% endfor %}
+      {% if section.settings.menu.links.size > 0 %}
+        {% for link in section.settings.menu.links %}
+          <a href="{{ link.url }}" class="footer-nav-link">{{ link.title }}</a>
+        {% endfor %}
+      {% else %}
+        <a href="/account" class="footer-nav-link">My account</a>
+        <a href="/collections" class="footer-nav-link">Shop by Brand</a>
+        <a href="/cart" class="footer-nav-link">Cart</a>
+        <a href="/checkout" class="footer-nav-link">Checkout</a>
+      {% endif %}
     </nav>
 
     <div class="footer-bottom">
