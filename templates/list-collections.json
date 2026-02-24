@@ -1,0 +1,11 @@
+{
+  "sections": {
+    "main": {
+      "type": "collection-list",
+      "settings": {
+        "title": "Shop by Collection"
+      }
+    }
+  },
+  "order": ["main"]
+}

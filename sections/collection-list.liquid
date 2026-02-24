@@ -1,0 +1,41 @@
+<section class="collection-list" data-section-id="{{ section.id }}">
+  <div class="section-wrapper">
+    <h1 class="page-heading">{{ section.settings.title | default: 'Collections' }}</h1>
+
+    <div class="collection-grid-cards">
+      {% for collection in collections %}
+        {% unless collection.handle == 'all' %}
+          <a href="{{ collection.url }}" class="collection-card">
+            <div class="collection-card-image">
+              {% if collection.image %}
+                {{ collection.image | image_url: width: 600 | image_tag: loading: 'lazy' }}
+              {% elsif collection.products.first.featured_image %}
+                {{ collection.products.first.featured_image | image_url: width: 600 | image_tag: loading: 'lazy' }}
+              {% else %}
+                {{ 'collection-1' | placeholder_svg_tag: 'placeholder-svg' }}
+              {% endif %}
+            </div>
+            <div class="collection-card-info">
+              <h2 class="collection-card-title">{{ collection.title }}</h2>
+              <p class="collection-card-count">{{ collection.products_count }} {{ collection.products_count | pluralize: 'product', 'products' }}</p>
+            </div>
+          </a>
+        {% endunless %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Collection List",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Collections"
+    }
+  ]
+}
+{% endschema %}

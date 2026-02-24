@@ -282,6 +282,76 @@ img {
   margin-bottom: 20px;
 }
 
+/* ===== COLLECTION LIST (Shop by Collection) ===== */
+
+.collection-grid-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.collection-card {
+  display: block;
+  border: 1px solid #e0e0e0;
+  transition: box-shadow 0.2s;
+}
+
+.collection-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.collection-card-image {
+  aspect-ratio: 1;
+  overflow: hidden;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.collection-card-image img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transition: transform 0.3s;
+}
+
+.collection-card:hover .collection-card-image img {
+  transform: scale(1.03);
+}
+
+.collection-card-info {
+  padding: 16px 20px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.collection-card-title {
+  font-family: var(--font-body);
+  font-size: 19px;
+  font-weight: 400;
+  color: var(--product-title);
+  margin-bottom: 4px;
+}
+
+.collection-card-count {
+  font-size: 13px;
+  color: #999;
+}
+
+@media (max-width: 768px) {
+  .collection-grid-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .collection-grid-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ===== COLLECTION TOOLBAR ===== */
 
 .collection-toolbar {
