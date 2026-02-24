@@ -1,0 +1,47 @@
+<footer class="site-footer" data-section-id="{{ section.id }}">
+  <div class="footer-wrapper">
+    <div class="footer-columns">
+      <div class="footer-col">
+        <h4>{{ shop.name }}</h4>
+        {% if section.settings.footer_text != blank %}
+          <p>{{ section.settings.footer_text }}</p>
+        {% endif %}
+      </div>
+
+      {% if section.settings.menu != blank %}
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            {% for link in section.settings.menu.links %}
+              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.</p>
+      {{ powered_by_link }}
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "text",
+      "id": "footer_text",
+      "label": "Footer description"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Footer menu",
+      "default": "footer"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,21 @@
+{
+  "general": {
+    "search": "Search",
+    "cart": "Cart",
+    "account": "Account"
+  },
+  "products": {
+    "add_to_cart": "Add to Cart",
+    "sold_out": "Sold Out",
+    "quantity": "Quantity",
+    "sale": "Sale"
+  },
+  "cart": {
+    "title": "Your Cart",
+    "empty": "Your cart is empty.",
+    "subtotal": "Subtotal",
+    "checkout": "Checkout",
+    "continue_shopping": "Continue Shopping",
+    "remove": "Remove"
+  }
+}

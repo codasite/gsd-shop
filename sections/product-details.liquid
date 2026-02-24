@@ -1,0 +1,74 @@
+<section class="product-details" data-section-id="{{ section.id }}">
+  <div class="product-wrapper">
+    <div class="product-gallery">
+      {% for image in product.images %}
+        <div class="product-image{% if forloop.first %} active{% endif %}">
+          {{ image | image_url: width: 800 | image_tag: loading: 'lazy' }}
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="product-info">
+      <h1 class="product-title">{{ product.title }}</h1>
+
+      <div class="product-price">
+        {% if product.compare_at_price > product.price %}
+          <span class="price-compare">{{ product.compare_at_price | money }}</span>
+        {% endif %}
+        <span class="price-current">{{ product.price | money }}</span>
+      </div>
+
+      {% form 'product', product %}
+        {% unless product.has_only_default_variant %}
+          <div class="product-variants">
+            {% for option in product.options_with_values %}
+              <div class="variant-option">
+                <label for="Option-{{ option.name | handleize }}">{{ option.name }}</label>
+                <select id="Option-{{ option.name | handleize }}" name="options[{{ option.name }}]">
+                  {% for value in option.values %}
+                    <option value="{{ value }}" {% if option.selected_value == value %}selected{% endif %}>
+                      {{ value }}
+                    </option>
+                  {% endfor %}
+                </select>
+              </div>
+            {% endfor %}
+          </div>
+        {% endunless %}
+
+        <select name="id" class="variant-selector" style="display:none">
+          {% for variant in product.variants %}
+            <option value="{{ variant.id }}" {% if variant == product.selected_or_first_available_variant %}selected{% endif %}>
+              {{ variant.title }} - {{ variant.price | money }}
+            </option>
+          {% endfor %}
+        </select>
+
+        <div class="product-quantity">
+          <label for="Quantity">Quantity</label>
+          <input type="number" id="Quantity" name="quantity" value="1" min="1">
+        </div>
+
+        <button type="submit" class="btn btn-primary add-to-cart"
+          {% unless product.available %}disabled{% endunless %}>
+          {% if product.available %}
+            Add to Cart
+          {% else %}
+            Sold Out
+          {% endif %}
+        </button>
+      {% endform %}
+
+      <div class="product-description rte">
+        {{ product.description }}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product Details",
+  "settings": []
+}
+{% endschema %}
