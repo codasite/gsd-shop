@@ -1,15 +1,27 @@
 <section class="collection-grid" data-section-id="{{ section.id }}">
   <div class="section-wrapper">
-    <h1 class="collection-title">{{ collection.title }}</h1>
+    <h1 class="page-heading">{{ collection.title }}</h1>
 
-    {% if collection.description != blank %}
-      <div class="collection-description rte">
-        {{ collection.description }}
+    {% if collection.products.size > 0 %}
+      <p class="results-count">
+        Showing {{ collection.products.size }} results
+      </p>
+
+      <div class="collection-toolbar">
+        <div class="collection-sort">
+          <select id="SortBy" class="sort-select">
+            <option value="manual">Default sorting</option>
+            <option value="best-selling">Sort by popularity</option>
+            <option value="title-ascending">Sort by name: A-Z</option>
+            <option value="title-descending">Sort by name: Z-A</option>
+            <option value="created-descending">Sort by latest</option>
+          </select>
+        </div>
       </div>
     {% endif %}
 
     {% paginate collection.products by section.settings.products_per_page %}
-      <div class="product-grid">
+      <div class="product-grid product-grid--4col">
         {% for product in collection.products %}
           {% render 'product-card', product: product %}
         {% endfor %}
@@ -35,7 +47,7 @@
       "min": 4,
       "max": 24,
       "step": 4,
-      "default": 12
+      "default": 16
     }
   ]
 }

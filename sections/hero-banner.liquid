@@ -1,24 +1,16 @@
 <section class="hero-banner" data-section-id="{{ section.id }}">
-  {% if section.settings.image %}
-    <div class="hero-image">
-      {{ section.settings.image | image_url: width: 1920 | image_tag: loading: 'eager' }}
-    </div>
-  {% endif %}
-
-  <div class="hero-content">
-    {% if section.settings.heading != blank %}
-      <h1 class="hero-heading">{{ section.settings.heading }}</h1>
+  <div class="hero-image-wrapper">
+    {% if section.settings.image %}
+      {{ section.settings.image | image_url: width: 1920 | image_tag: loading: 'eager', class: 'hero-bg-image' }}
     {% endif %}
+  </div>
 
-    {% if section.settings.subheading != blank %}
-      <p class="hero-subheading">{{ section.settings.subheading }}</p>
-    {% endif %}
-
-    {% if section.settings.button_text != blank %}
-      <a href="{{ section.settings.button_url }}" class="btn btn-primary">
-        {{ section.settings.button_text }}
-      </a>
-    {% endif %}
+  <div class="hero-cta-circle">
+    <a href="{{ section.settings.button_url | default: '/collections/all' }}">
+      {% if section.settings.heading != blank %}
+        <span class="hero-circle-text">{{ section.settings.heading }}</span>
+      {% endif %}
+    </a>
   </div>
 </section>
 
@@ -34,25 +26,13 @@
     {
       "type": "text",
       "id": "heading",
-      "label": "Heading",
-      "default": "Welcome to our store"
-    },
-    {
-      "type": "text",
-      "id": "subheading",
-      "label": "Subheading",
-      "default": "Shop our latest collection"
-    },
-    {
-      "type": "text",
-      "id": "button_text",
-      "label": "Button text",
-      "default": "Shop Now"
+      "label": "Circle CTA text",
+      "default": "Shop Branded Items"
     },
     {
       "type": "url",
       "id": "button_url",
-      "label": "Button link"
+      "label": "Circle link"
     }
   ],
   "presets": [

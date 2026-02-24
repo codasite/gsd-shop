@@ -2,10 +2,13 @@
   "current": "Default",
   "presets": {
     "Default": {
-      "color_primary": "#000000",
-      "color_secondary": "#333333",
-      "color_accent": "#0066cc",
-      "color_background": "#ffffff"
+      "color_navy": "#002442",
+      "color_gold": "#ffbf00",
+      "color_product_title": "#6799b2",
+      "color_button": "#666666",
+      "color_body_text": "#404040",
+      "color_background": "#ffffff",
+      "color_header_accent": "#c8102e"
     }
   }
 }

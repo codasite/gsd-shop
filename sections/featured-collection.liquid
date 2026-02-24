@@ -4,7 +4,7 @@
       <h2 class="section-title">{{ section.settings.title }}</h2>
     {% endif %}
 
-    <div class="product-grid">
+    <div class="product-grid product-grid--4col">
       {% for product in collections[section.settings.collection].products limit: section.settings.products_to_show %}
         {% render 'product-card', product: product %}
       {% endfor %}
@@ -12,8 +12,8 @@
 
     {% if section.settings.show_view_all %}
       <div class="section-actions">
-        <a href="{{ collections[section.settings.collection].url }}" class="btn btn-secondary">
-          View All
+        <a href="{{ collections[section.settings.collection].url }}" class="btn btn-select-options">
+          VIEW ALL
         </a>
       </div>
     {% endif %}
@@ -40,7 +40,7 @@
       "id": "products_to_show",
       "label": "Products to show",
       "min": 2,
-      "max": 12,
+      "max": 16,
       "step": 1,
       "default": 4
     },

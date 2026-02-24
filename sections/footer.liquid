@@ -1,28 +1,47 @@
 <footer class="site-footer" data-section-id="{{ section.id }}">
-  <div class="footer-wrapper">
-    <div class="footer-columns">
-      <div class="footer-col">
-        <h4>{{ shop.name }}</h4>
-        {% if section.settings.footer_text != blank %}
-          <p>{{ section.settings.footer_text }}</p>
+  <div class="footer-gradient"></div>
+  <div class="footer-navy">
+    <div class="footer-logo-area">
+      {% if section.settings.footer_logo %}
+        {{ section.settings.footer_logo | image_url: width: 160 | image_tag: alt: shop.name }}
+      {% else %}
+        <div class="footer-gsd-logo">
+          <div class="footer-logo-circle">
+            <span class="footer-logo-initials">GSD</span>
+          </div>
+          <p class="footer-logo-text">GOLDEN STATE<br>DERMATOLOGY</p>
+        </div>
+      {% endif %}
+      <hr class="footer-divider">
+    </div>
+
+    <nav class="footer-nav">
+      {% for link in section.settings.menu.links %}
+        <a href="{{ link.url }}" class="footer-nav-link">{{ link.title }}</a>
+      {% endfor %}
+    </nav>
+
+    <div class="footer-bottom">
+      <div class="footer-bottom-logo">
+        {% if section.settings.shop_logo %}
+          {{ section.settings.shop_logo | image_url: width: 160 | image_tag: alt: shop.name }}
+        {% else %}
+          <div class="footer-shop-logo">
+            <div class="footer-shop-circle">
+              <span>GSD</span>
+            </div>
+            <div class="footer-shop-text">
+              <span>GOLDEN STATE</span>
+              <span>DERMATOLOGY</span>
+              <span class="footer-shop-bold">SHOP</span>
+            </div>
+          </div>
         {% endif %}
       </div>
 
-      {% if section.settings.menu != blank %}
-        <div class="footer-col">
-          <h4>Quick Links</h4>
-          <ul>
-            {% for link in section.settings.menu.links %}
-              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
-            {% endfor %}
-          </ul>
-        </div>
-      {% endif %}
-    </div>
-
-    <div class="footer-bottom">
-      <p>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.</p>
-      {{ powered_by_link }}
+      <p class="footer-contact">
+        {{ section.settings.contact_text | default: "Please contact the marketing team for any questions or concerns." }}
+      </p>
     </div>
   </div>
 </footer>
@@ -32,15 +51,26 @@
   "name": "Footer",
   "settings": [
     {
-      "type": "text",
-      "id": "footer_text",
-      "label": "Footer description"
+      "type": "image_picker",
+      "id": "footer_logo",
+      "label": "Footer center logo"
+    },
+    {
+      "type": "image_picker",
+      "id": "shop_logo",
+      "label": "Bottom-left shop logo"
     },
     {
       "type": "link_list",
       "id": "menu",
       "label": "Footer menu",
       "default": "footer"
+    },
+    {
+      "type": "text",
+      "id": "contact_text",
+      "label": "Contact text",
+      "default": "Please contact the marketing team for any questions or concerns."
     }
   ]
 }

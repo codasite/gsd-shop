@@ -2,14 +2,37 @@
   "sections": {
     "hero": {
       "type": "hero-banner",
-      "settings": {}
-    },
-    "featured-collection": {
-      "type": "featured-collection",
       "settings": {
-        "title": "Featured Products"
+        "heading": "Shop Branded Items"
       }
+    },
+    "brand-logos": {
+      "type": "brand-logos",
+      "blocks": {
+        "brand-1": {
+          "type": "brand",
+          "settings": {
+            "initials": "GSD",
+            "name": "GOLDEN STATE DERMATOLOGY"
+          }
+        },
+        "brand-2": {
+          "type": "brand",
+          "settings": {
+            "initials": "GSP",
+            "name": "GOLDEN STATE DERMATOPATHOLOGY"
+          }
+        },
+        "brand-3": {
+          "type": "brand",
+          "settings": {
+            "initials": "GSP",
+            "name": "GOLDEN STATE PLASTIC SURGERY"
+          }
+        }
+      },
+      "block_order": ["brand-1", "brand-2", "brand-3"]
     }
   },
-  "order": ["hero", "featured-collection"]
+  "order": ["hero", "brand-logos"]
 }

@@ -6,20 +6,24 @@
       {% else %}
         {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
       {% endif %}
-
-      {% if product.compare_at_price > product.price %}
-        <span class="product-badge sale">Sale</span>
-      {% endif %}
     </div>
 
-    <div class="product-card-info">
-      <h3 class="product-card-title">{{ product.title }}</h3>
-      <div class="product-card-price">
-        {% if product.compare_at_price > product.price %}
-          <span class="price-compare">{{ product.compare_at_price | money }}</span>
-        {% endif %}
-        <span class="price-current">{{ product.price | money }}</span>
-      </div>
-    </div>
+    <h2 class="product-card-title">{{ product.title }}</h2>
   </a>
+
+  {% if product.has_only_default_variant %}
+    {% form 'product', product %}
+      <input type="hidden" name="id" value="{{ product.first_available_variant.id }}">
+      <button type="submit" class="btn btn-select-options"
+        {% unless product.available %}disabled{% endunless %}>
+        {% if product.available %}
+          SELECT OPTIONS
+        {% else %}
+          SOLD OUT
+        {% endif %}
+      </button>
+    {% endform %}
+  {% else %}
+    <a href="{{ product.url }}" class="btn btn-select-options">SELECT OPTIONS</a>
+  {% endif %}
 </div>

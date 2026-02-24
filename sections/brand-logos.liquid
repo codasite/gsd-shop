@@ -1,0 +1,96 @@
+<section class="brand-logos" data-section-id="{{ section.id }}">
+  <div class="brand-logos-wrapper">
+    {% for block in section.blocks %}
+      <div class="brand-logo-item" {{ block.shopify_attributes }}>
+        {% if block.settings.link != blank %}
+          <a href="{{ block.settings.link }}">
+        {% endif %}
+
+        {% if block.settings.logo %}
+          <div class="brand-logo-image">
+            {{ block.settings.logo | image_url: width: 120 | image_tag: loading: 'lazy' }}
+          </div>
+        {% else %}
+          <div class="brand-logo-placeholder">
+            <div class="brand-circle">
+              <span>{{ block.settings.initials }}</span>
+            </div>
+          </div>
+        {% endif %}
+
+        {% if block.settings.name != blank %}
+          <p class="brand-logo-name">{{ block.settings.name }}</p>
+        {% endif %}
+
+        {% if block.settings.link != blank %}
+          </a>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Brand Logos",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "brand",
+      "name": "Brand",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "Logo image"
+        },
+        {
+          "type": "text",
+          "id": "initials",
+          "label": "Initials (fallback)",
+          "default": "GSD"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Brand name",
+          "default": "Golden State Dermatology"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Brand Logos",
+      "blocks": [
+        {
+          "type": "brand",
+          "settings": {
+            "initials": "GSD",
+            "name": "GOLDEN STATE DERMATOLOGY"
+          }
+        },
+        {
+          "type": "brand",
+          "settings": {
+            "initials": "GSP",
+            "name": "GOLDEN STATE DERMATOPATHOLOGY"
+          }
+        },
+        {
+          "type": "brand",
+          "settings": {
+            "initials": "GSP",
+            "name": "GOLDEN STATE PLASTIC SURGERY"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
