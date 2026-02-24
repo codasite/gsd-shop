@@ -4,16 +4,7 @@
       {% if section.settings.logo %}
         {{ section.settings.logo | image_url: width: 200 | image_tag: alt: shop.name }}
       {% else %}
-        <div class="logo-placeholder">
-          <div class="logo-circle">
-            <span class="logo-initials">GSD</span>
-          </div>
-          <div class="logo-text">
-            <span class="logo-line-1">GOLDEN STATE</span>
-            <span class="logo-line-2">DERMATOLOGY</span>
-            <span class="logo-line-3">SHOP</span>
-          </div>
-        </div>
+        <img src="{{ 'gsd-shop-logo.png' | asset_url }}" alt="{{ shop.name }}" class="logo-img">
       {% endif %}
     </a>
 
@@ -29,7 +20,6 @@
       <span class="hamburger"></span>
     </button>
   </div>
-  <div class="header-accent-line"></div>
 </header>
 
 {% schema %}

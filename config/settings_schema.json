@@ -48,9 +48,9 @@
       },
       {
         "type": "color",
-        "id": "color_header_accent",
-        "label": "Header accent line",
-        "default": "#c8102e"
+        "id": "color_light_gray",
+        "label": "Light gray background",
+        "default": "#f2f2f2"
       }
     ]
   },

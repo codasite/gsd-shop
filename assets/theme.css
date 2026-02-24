@@ -7,8 +7,7 @@
   --btn-bg: {{ settings.color_button | default: '#666666' }};
   --body-text: {{ settings.color_body_text | default: '#404040' }};
   --bg: {{ settings.color_background | default: '#ffffff' }};
-  --header-accent: {{ settings.color_header_accent | default: '#c8102e' }};
-  --light-gray: #e9e6ed;
+  --light-gray: #f2f2f2;
   --font-heading: 'Fustat', sans-serif;
   --font-body: 'Open Sans', sans-serif;
 }
@@ -84,89 +83,35 @@ img {
 }
 
 /* ===== HEADER ===== */
+/* Matches gsd-shop.com: white bg, logo left ~100px tall, nav links right, ~100px total height */
 
 .site-header {
   background: var(--bg);
-  position: relative;
 }
 
 .header-wrapper {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 16px 40px;
+  padding: 0 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 100px;
 }
 
-.header-accent-line {
-  height: 4px;
-  background: var(--header-accent);
-  width: 100%;
-}
-
-/* Logo placeholder */
-.logo-placeholder {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.logo-circle {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: var(--navy);
+.site-logo {
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin-bottom: 4px;
 }
 
-.logo-initials {
-  color: #fff;
-  font-family: var(--font-heading);
-  font-size: 16px;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-}
-
-.logo-text {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  line-height: 1.1;
-}
-
-.logo-line-1,
-.logo-line-2 {
-  font-family: var(--font-heading);
-  font-size: 10px;
-  font-weight: 400;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--navy);
-}
-
-.logo-line-3 {
-  font-family: var(--font-heading);
-  font-size: 14px;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--navy);
-}
-
-.site-logo img {
-  max-height: 80px;
+.logo-img {
+  height: 80px;
   width: auto;
 }
 
-/* Navigation */
 .main-nav {
   display: flex;
-  gap: 36px;
+  gap: 40px;
   align-items: center;
 }
 
@@ -214,20 +159,21 @@ img {
 .hamburger::after { top: 7px; }
 
 /* ===== HERO BANNER ===== */
+/* Matches gsd-shop.com: 600px height, bg image covers left ~55%, navy circle CTA on right */
 
 .hero-banner {
   position: relative;
-  min-height: 580px;
+  height: 600px;
   background: var(--light-gray);
   overflow: hidden;
-  display: flex;
-  align-items: stretch;
 }
 
 .hero-image-wrapper {
-  position: relative;
-  width: 60%;
-  min-height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 55%;
+  height: 100%;
 }
 
 .hero-bg-image {
@@ -239,7 +185,7 @@ img {
 
 .hero-cta-circle {
   position: absolute;
-  right: 10%;
+  right: 12%;
   top: 50%;
   transform: translateY(-50%);
   width: 260px;
@@ -264,17 +210,18 @@ img {
 
 .hero-circle-text {
   font-family: var(--font-heading);
-  font-size: 32px;
+  font-size: 40px;
   font-weight: 700;
   color: #fff;
-  line-height: 1.2;
+  line-height: 1.15;
 }
 
 /* ===== BRAND LOGOS ===== */
+/* Matches gsd-shop.com: #f2f2f2 bg, 75px top/bottom padding, 3 logos centered */
 
 .brand-logos {
   background: var(--light-gray);
-  padding: 60px 20px;
+  padding: 75px 20px;
 }
 
 .brand-logos-wrapper {
@@ -283,11 +230,12 @@ img {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  gap: 80px;
+  gap: 100px;
 }
 
 .brand-logo-item {
   text-align: center;
+  max-width: 280px;
 }
 
 .brand-logo-item a {
@@ -296,44 +244,22 @@ img {
   align-items: center;
 }
 
+.brand-logo-image {
+  margin-bottom: 16px;
+}
+
 .brand-logo-image img {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  object-fit: contain;
-  margin-bottom: 12px;
-}
-
-.brand-logo-placeholder {
-  margin-bottom: 12px;
-}
-
-.brand-circle {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background: var(--navy);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.brand-circle span {
-  color: #fff;
-  font-family: var(--font-heading);
-  font-size: 24px;
-  font-weight: 700;
-  letter-spacing: 0.05em;
+  width: 110px;
+  height: auto;
 }
 
 .brand-logo-name {
   font-family: var(--font-heading);
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--navy);
-  max-width: 200px;
   line-height: 1.3;
 }
 
@@ -388,6 +314,7 @@ img {
 }
 
 /* ===== PRODUCT GRID ===== */
+/* Matches gsd-shop.com: 4-column, bordered cards, product title in muted blue, gray buttons */
 
 .product-grid {
   display: grid;
@@ -414,7 +341,7 @@ img {
   aspect-ratio: 1;
   overflow: hidden;
   background: #fff;
-  border: 1px solid #e5e5e5;
+  border: 1px solid #e0e0e0;
   margin-bottom: 16px;
   display: flex;
   align-items: center;
@@ -459,7 +386,7 @@ img {
 }
 
 .product-gallery {
-  border: 1px solid #e5e5e5;
+  border: 1px solid #e0e0e0;
   padding: 20px;
   display: flex;
   align-items: center;
@@ -585,7 +512,7 @@ img {
   width: 100px;
   height: 100px;
   object-fit: contain;
-  border: 1px solid #e5e5e5;
+  border: 1px solid #e0e0e0;
   padding: 8px;
 }
 
@@ -643,75 +570,54 @@ img {
 }
 
 /* ===== FOOTER ===== */
+/* Matches gsd-shop.com:
+   - Gold section: 400px, photo bg with rgba(112,84,0,0.71) overlay
+   - Navy section: 767px, #002442
+   - GSD logo circle overlapping the gold/navy boundary
+   - Gold nav links stacked vertically
+   - Bottom bar: white shop logo left, contact text right */
 
 .site-footer {
   margin-top: 0;
 }
 
-.footer-gradient {
-  height: 200px;
-  background: linear-gradient(to bottom, var(--light-gray), #b8a060, #8a7a3e);
+.footer-gold-section {
+  position: relative;
+  height: 400px;
+  overflow: hidden;
+}
+
+.footer-gold-section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(112, 84, 0, 0.71);
+  z-index: 1;
+}
+
+.footer-gold-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  inset: 0;
 }
 
 .footer-navy {
   background: var(--navy);
-  padding: 0 40px 40px;
+  padding: 0 40px 60px;
   text-align: center;
 }
 
 .footer-logo-area {
-  padding-top: 0;
-  transform: translateY(-60px);
-  margin-bottom: -20px;
+  transform: translateY(-80px);
+  margin-bottom: -40px;
 }
 
-.footer-gsd-logo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.footer-logo-circle {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  background: var(--navy);
-  border: 4px solid #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 16px;
-  box-shadow: 0 0 0 8px var(--navy);
-}
-
-.footer-logo-circle::before {
-  content: '';
-  position: absolute;
-  width: 140px;
-  height: 70px;
-  background: var(--navy);
-  border-radius: 70px 70px 0 0;
-  top: -10px;
-}
-
-.footer-logo-initials {
-  color: #fff;
-  font-family: var(--font-heading);
-  font-size: 36px;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  position: relative;
-  z-index: 1;
-}
-
-.footer-logo-text {
-  font-family: var(--font-heading);
-  font-size: 24px;
-  font-weight: 300;
-  letter-spacing: 0.15em;
-  color: #fff;
-  text-transform: uppercase;
-  line-height: 1.3;
+.footer-center-logo {
+  width: 200px;
+  height: auto;
+  margin: 0 auto;
 }
 
 .footer-divider {
@@ -725,8 +631,8 @@ img {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
-  padding: 30px 0;
+  gap: 20px;
+  padding: 40px 0;
 }
 
 .footer-nav-link {
@@ -750,53 +656,9 @@ img {
   margin: 0 auto;
 }
 
-.footer-shop-logo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.footer-shop-circle {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: transparent;
-  border: 2px solid #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 6px;
-}
-
-.footer-shop-circle span {
-  color: #fff;
-  font-family: var(--font-heading);
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-}
-
-.footer-shop-text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.1;
-}
-
-.footer-shop-text span {
-  font-family: var(--font-heading);
-  font-size: 9px;
-  font-weight: 400;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #fff;
-}
-
-.footer-shop-bold {
-  font-size: 14px !important;
-  font-weight: 800 !important;
-  letter-spacing: 0.1em !important;
-  margin-top: 2px;
+.footer-shop-logo-img {
+  width: 140px;
+  height: auto;
 }
 
 .footer-contact {
@@ -883,17 +745,22 @@ img {
   }
 
   .hero-circle-text {
-    font-size: 24px;
+    font-size: 28px;
   }
 
   .brand-logos-wrapper {
-    gap: 40px;
+    gap: 50px;
   }
 }
 
 @media (max-width: 768px) {
   .header-wrapper {
-    padding: 12px 20px;
+    padding: 0 16px;
+    height: 70px;
+  }
+
+  .logo-img {
+    height: 55px;
   }
 
   .main-nav {
@@ -919,7 +786,7 @@ img {
   }
 
   .hero-banner {
-    min-height: 400px;
+    height: 400px;
   }
 
   .hero-image-wrapper {
@@ -936,7 +803,11 @@ img {
   }
 
   .hero-circle-text {
-    font-size: 20px;
+    font-size: 22px;
+  }
+
+  .brand-logos {
+    padding: 40px 20px;
   }
 
   .brand-logos-wrapper {
@@ -970,15 +841,15 @@ img {
     grid-column: 2;
   }
 
+  .footer-gold-section {
+    height: 200px;
+  }
+
   .footer-bottom {
     flex-direction: column;
     align-items: center;
     gap: 20px;
     text-align: center;
-  }
-
-  .footer-gradient {
-    height: 120px;
   }
 }
 
@@ -987,21 +858,23 @@ img {
     grid-template-columns: 1fr;
   }
 
+  .hero-banner {
+    height: auto;
+    min-height: 300px;
+  }
+
+  .hero-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 300px;
+  }
+
   .hero-cta-circle {
     position: relative;
     right: auto;
     bottom: auto;
-    margin: 20px auto;
+    margin: -60px auto 30px;
     width: 180px;
     height: 180px;
-  }
-
-  .hero-banner {
-    flex-direction: column;
-  }
-
-  .hero-image-wrapper {
-    width: 100%;
-    height: 300px;
   }
 }

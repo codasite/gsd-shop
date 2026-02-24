@@ -1,9 +1,13 @@
 <section class="hero-banner" data-section-id="{{ section.id }}">
-  <div class="hero-image-wrapper">
-    {% if section.settings.image %}
+  {% if section.settings.image %}
+    <div class="hero-image-wrapper">
       {{ section.settings.image | image_url: width: 1920 | image_tag: loading: 'eager', class: 'hero-bg-image' }}
-    {% endif %}
-  </div>
+    </div>
+  {% else %}
+    <div class="hero-image-wrapper">
+      <img src="{{ 'hero-bg.png' | asset_url }}" alt="GSD Shop" class="hero-bg-image" loading="eager">
+    </div>
+  {% endif %}
 
   <div class="hero-cta-circle">
     <a href="{{ section.settings.button_url | default: '/collections/all' }}">

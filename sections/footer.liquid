@@ -1,19 +1,18 @@
 <footer class="site-footer" data-section-id="{{ section.id }}">
-  <div class="footer-gradient"></div>
+  <div class="footer-gold-section">
+    <img src="{{ 'gold-section-bg.jpg' | asset_url }}" alt="" class="footer-gold-bg" aria-hidden="true">
+  </div>
+
   <div class="footer-navy">
     <div class="footer-logo-area">
       {% if section.settings.footer_logo %}
-        {{ section.settings.footer_logo | image_url: width: 160 | image_tag: alt: shop.name }}
+        {{ section.settings.footer_logo | image_url: width: 400 | image_tag: class: 'footer-center-logo' }}
       {% else %}
-        <div class="footer-gsd-logo">
-          <div class="footer-logo-circle">
-            <span class="footer-logo-initials">GSD</span>
-          </div>
-          <p class="footer-logo-text">GOLDEN STATE<br>DERMATOLOGY</p>
-        </div>
+        <img src="{{ 'gsd-footer-logo.png' | asset_url }}" alt="Golden State Dermatology" class="footer-center-logo">
       {% endif %}
-      <hr class="footer-divider">
     </div>
+
+    <hr class="footer-divider">
 
     <nav class="footer-nav">
       {% for link in section.settings.menu.links %}
@@ -24,18 +23,9 @@
     <div class="footer-bottom">
       <div class="footer-bottom-logo">
         {% if section.settings.shop_logo %}
-          {{ section.settings.shop_logo | image_url: width: 160 | image_tag: alt: shop.name }}
+          {{ section.settings.shop_logo | image_url: width: 200 | image_tag }}
         {% else %}
-          <div class="footer-shop-logo">
-            <div class="footer-shop-circle">
-              <span>GSD</span>
-            </div>
-            <div class="footer-shop-text">
-              <span>GOLDEN STATE</span>
-              <span>DERMATOLOGY</span>
-              <span class="footer-shop-bold">SHOP</span>
-            </div>
-          </div>
+          <img src="{{ 'gsd-shop-logo-white.png' | asset_url }}" alt="GSD Shop" class="footer-shop-logo-img">
         {% endif %}
       </div>
 

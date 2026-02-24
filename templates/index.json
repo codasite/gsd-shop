@@ -12,21 +12,21 @@
         "brand-1": {
           "type": "brand",
           "settings": {
-            "initials": "GSD",
+            "default_image": "gsd-brand-dermatology.png",
             "name": "GOLDEN STATE DERMATOLOGY"
           }
         },
         "brand-2": {
           "type": "brand",
           "settings": {
-            "initials": "GSP",
+            "default_image": "gsd-brand-dermatopathology.png",
             "name": "GOLDEN STATE DERMATOPATHOLOGY"
           }
         },
         "brand-3": {
           "type": "brand",
           "settings": {
-            "initials": "GSP",
+            "default_image": "gsd-brand-plasticsurgery.png",
             "name": "GOLDEN STATE PLASTIC SURGERY"
           }
         }
