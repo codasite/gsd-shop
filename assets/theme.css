@@ -164,43 +164,35 @@ img {
 .hamburger::after { top: 7px; }
 
 /* ===== HERO BANNER ===== */
-/* Matches gsd-shop.com: 600px height, bg image covers left ~55%, navy circle CTA on right */
+/* Matches gsd-shop.com: 600px, bg-image contain at 25% 50%, navy circle flex-end */
 
 .hero-banner {
-  position: relative;
   height: 600px;
-  background: var(--light-gray);
-  overflow: hidden;
+  background-color: #fff;
+  background-size: contain;
+  background-position: 25% 50%;
+  background-repeat: no-repeat;
 }
 
-.hero-image-wrapper {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 55%;
+.hero-inner {
+  max-width: 1120px;
+  margin: 0 auto;
   height: 100%;
-}
-
-.hero-bg-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 75px 20px 30px;
 }
 
 .hero-cta-circle {
-  position: absolute;
-  right: 12%;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 260px;
-  height: 260px;
-  border-radius: 50%;
-  background: var(--navy);
+  width: 325px;
+  height: 320px;
+  border-radius: 200px;
+  background: rgba(0, 26, 51, 0.9);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 2;
 }
 
 .hero-cta-circle a {
@@ -216,31 +208,33 @@ img {
 .hero-circle-text {
   font-family: var(--font-heading);
   font-size: 40px;
-  font-weight: 700;
+  font-weight: 800;
   color: #fff;
   line-height: 1.15;
 }
 
 /* ===== BRAND LOGOS ===== */
-/* Matches gsd-shop.com: #f2f2f2 bg, 75px top/bottom padding, 3 logos centered */
+/* Matches gsd-shop.com: #f2f2f2 bg, 75px padding, 3 logos with text baked in */
 
 .brand-logos {
   background: var(--light-gray);
-  padding: 75px 20px;
 }
 
 .brand-logos-wrapper {
-  max-width: 1200px;
+  max-width: 1120px;
   margin: 0 auto;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  gap: 100px;
+  align-items: center;
+  padding: 75px 20px;
+  gap: 40px;
 }
 
 .brand-logo-item {
   text-align: center;
-  max-width: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .brand-logo-item a {
@@ -249,24 +243,12 @@ img {
   align-items: center;
 }
 
-.brand-logo-image {
-  margin-bottom: 16px;
-}
-
 .brand-logo-image img {
-  max-width: 340px;
   height: auto;
+  max-height: 350px;
 }
 
 .brand-logo-name {
-  font-family: var(--font-heading);
-  font-size: 18px;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--navy);
-  line-height: 1.3;
-  /* Hidden by default since brand names are baked into the logo images */
   display: none;
 }
 
@@ -587,47 +569,35 @@ img {
 
 /* ===== FOOTER ===== */
 /* Matches gsd-shop.com:
-   - Gold section: 400px, photo bg with rgba(112,84,0,0.71) overlay
-   - Navy section: 767px, #002442
-   - GSD logo circle overlapping the gold/navy boundary
+   - Gold section: 400px, photo bg with rgba(112,84,0,0.71) overlay, bg-size: cover
+   - Navy section: #002442
+   - GSD logo overlapping gold/navy boundary by -50px
    - Gold nav links stacked vertically
-   - Bottom bar: white shop logo left, contact text right */
+   - Bottom bar: white shop logo left, contact text right, 75px bottom padding */
 
 .site-footer {
   margin-top: 0;
 }
 
 .footer-gold-section {
-  position: relative;
   height: 400px;
-  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
 }
 
-.footer-gold-section::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(112, 84, 0, 0.71);
-  z-index: 1;
-}
-
-.footer-gold-bg {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  position: absolute;
-  inset: 0;
-}
+/* Gold overlay is applied via inline CSS background-image gradient on the element */
 
 .footer-navy {
   background: var(--navy);
-  padding: 0 40px 60px;
+  padding: 0 20px 75px;
   text-align: center;
 }
 
 .footer-logo-area {
-  transform: translateY(-80px);
-  margin-bottom: -40px;
+  transform: translateY(-50px);
+  margin-bottom: -10px;
 }
 
 .footer-center-logo {
@@ -754,18 +724,21 @@ img {
     grid-template-columns: repeat(3, 1fr);
   }
 
+  .hero-banner {
+    height: 500px;
+  }
+
   .hero-cta-circle {
-    width: 200px;
-    height: 200px;
-    right: 5%;
+    width: 240px;
+    height: 240px;
   }
 
   .hero-circle-text {
-    font-size: 28px;
+    font-size: 30px;
   }
 
   .brand-logos-wrapper {
-    gap: 50px;
+    gap: 30px;
   }
 }
 
@@ -803,19 +776,16 @@ img {
 
   .hero-banner {
     height: 400px;
+    background-position: 20% 50%;
   }
 
-  .hero-image-wrapper {
-    width: 100%;
+  .hero-inner {
+    padding: 40px 20px 20px;
   }
 
   .hero-cta-circle {
-    width: 160px;
-    height: 160px;
-    right: 20px;
-    bottom: 20px;
-    top: auto;
-    transform: none;
+    width: 180px;
+    height: 180px;
   }
 
   .hero-circle-text {
@@ -875,22 +845,17 @@ img {
   }
 
   .hero-banner {
-    height: auto;
-    min-height: 300px;
-  }
-
-  .hero-image-wrapper {
-    position: relative;
-    width: 100%;
-    height: 300px;
+    height: 350px;
+    background-size: cover;
+    background-position: 30% center;
   }
 
   .hero-cta-circle {
-    position: relative;
-    right: auto;
-    bottom: auto;
-    margin: -60px auto 30px;
-    width: 180px;
-    height: 180px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .hero-circle-text {
+    font-size: 18px;
   }
 }

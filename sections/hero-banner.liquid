@@ -1,20 +1,16 @@
-<section class="hero-banner" data-section-id="{{ section.id }}">
+<section class="hero-banner" data-section-id="{{ section.id }}"
   {% if section.settings.image %}
-    <div class="hero-image-wrapper">
-      {{ section.settings.image | image_url: width: 1920 | image_tag: loading: 'eager', class: 'hero-bg-image' }}
-    </div>
+    style="background-image: url('{{ section.settings.image | image_url: width: 1920 }}');"
   {% else %}
-    <div class="hero-image-wrapper">
-      <img src="{{ 'hero-bg.png' | asset_url }}" alt="GSD Shop" class="hero-bg-image" loading="eager">
-    </div>
+    style="background-image: url('{{ 'hero-bg.png' | asset_url }}');"
   {% endif %}
-
-  <div class="hero-cta-circle">
-    <a href="{{ section.settings.button_url | default: '/collections/all' }}">
-      {% if section.settings.heading != blank %}
-        <span class="hero-circle-text">{{ section.settings.heading }}</span>
-      {% endif %}
-    </a>
+>
+  <div class="hero-inner">
+    <div class="hero-cta-circle">
+      <a href="{{ section.settings.button_url | default: '/collections/all' }}">
+        <span class="hero-circle-text">{{ section.settings.heading | default: 'Shop Branded Items' }}</span>
+      </a>
+    </div>
   </div>
 </section>
 
