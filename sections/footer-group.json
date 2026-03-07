@@ -29,10 +29,14 @@
       },
       "block_order": ["brand_dermatology", "brand_dermatopathology", "brand_plasticsurgery"]
     },
+    "gold-banner": {
+      "type": "gold-banner",
+      "settings": {}
+    },
     "footer": {
       "type": "footer",
       "settings": {}
     }
   },
-  "order": ["brand-logos", "footer"]
+  "order": ["brand-logos", "gold-banner", "footer"]
 }

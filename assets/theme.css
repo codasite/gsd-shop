@@ -639,15 +639,11 @@ img {
 
 /* ===== FOOTER ===== */
 /* Matches gsd-shop.com:
-   - Gold section: 400px, photo bg with rgba(112,84,0,0.71) overlay, bg-size: cover
-   - Navy section: #002442
-   - GSD logo overlapping gold/navy boundary by -50px
+   - Gold banner is a separate section above the footer
+   - Footer starts with navy #002442 background
+   - GSD logo overlaps gold/navy boundary by -50px
    - Gold nav links stacked vertically
    - Bottom bar: white shop logo left, contact text right, 75px bottom padding */
-
-.site-footer {
-  margin-top: 0;
-}
 
 .footer-gold-section {
   height: 400px;

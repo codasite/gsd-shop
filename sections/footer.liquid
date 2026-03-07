@@ -1,7 +1,4 @@
-<footer class="site-footer" data-section-id="{{ section.id }}">
-  <div class="footer-gold-section" style="background-image: linear-gradient(rgba(112, 84, 0, 0.71), rgba(112, 84, 0, 0.71)), url('{{ 'gold-section-bg.jpg' | asset_url }}');"></div>
-
-  <div class="footer-navy">
+<footer class="site-footer footer-navy" data-section-id="{{ section.id }}">
     <div class="footer-logo-area">
       {% if section.settings.footer_logo %}
         {{ section.settings.footer_logo | image_url: width: 400 | image_tag: class: 'footer-center-logo' }}
@@ -38,7 +35,6 @@
         {{ section.settings.contact_text | default: "Please contact the marketing team for any questions or concerns." }}
       </p>
     </div>
-  </div>
 </footer>
 
 {% schema %}
