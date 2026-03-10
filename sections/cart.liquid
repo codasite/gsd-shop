@@ -20,7 +20,9 @@
               </div>
 
               <div class="cart-item-quantity">
-                <input type="number" name="updates[]" value="{{ item.quantity }}" min="0"
+                {% assign cart_min = item.product.metafields.custom.min_quantity.value | default: 0 %}
+                {% assign cart_max = item.product.metafields.custom.max_quantity.value %}
+                <input type="number" name="updates[]" value="{{ item.quantity }}" min="{{ cart_min }}"{% if cart_max %} max="{{ cart_max }}"{% endif %}
                   data-line="{{ forloop.index }}">
               </div>
 
