@@ -13,21 +13,24 @@
           "type": "brand",
           "settings": {
             "default_image": "gsd-brand-dermatology.png",
-            "name": "GOLDEN STATE DERMATOLOGY"
+            "name": "GOLDEN STATE DERMATOLOGY",
+            "link": "/collections/golden-state-dermatology"
           }
         },
         "brand-2": {
           "type": "brand",
           "settings": {
             "default_image": "gsd-brand-dermatopathology.png",
-            "name": "GOLDEN STATE DERMATOPATHOLOGY"
+            "name": "GOLDEN STATE DERMATOPATHOLOGY",
+            "link": "/collections/golden-state-dermatopathology"
           }
         },
         "brand-3": {
           "type": "brand",
           "settings": {
             "default_image": "gsd-brand-plasticsurgery.png",
-            "name": "GOLDEN STATE PLASTIC SURGERY"
+            "name": "GOLDEN STATE PLASTIC SURGERY",
+            "link": "/collections/golden-state-plastic-surgery"
           }
         }
       },
