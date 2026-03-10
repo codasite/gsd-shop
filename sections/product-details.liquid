@@ -48,9 +48,23 @@
           {% endfor %}
         </select>
 
+        {% assign min_qty = product.metafields.custom.min_quantity.value | default: 1 %}
+        {% assign max_qty = product.metafields.custom.max_quantity.value %}
+
         <div class="product-add-row">
           <div class="product-quantity">
-            <input type="number" id="Quantity" name="quantity" value="1" min="1" aria-label="Quantity">
+            <input type="number" id="Quantity" name="quantity" value="{{ min_qty }}" min="{{ min_qty }}"{% if max_qty %} max="{{ max_qty }}"{% endif %} aria-label="Quantity">
+            {% if min_qty > 1 or max_qty %}
+              <p class="quantity-limits">
+                {% if min_qty > 1 and max_qty %}
+                  Min: {{ min_qty }} / Max: {{ max_qty }}
+                {% elsif min_qty > 1 %}
+                  Min: {{ min_qty }}
+                {% elsif max_qty %}
+                  Max: {{ max_qty }}
+                {% endif %}
+              </p>
+            {% endif %}
           </div>
 
           <button type="submit" class="add-to-cart"
