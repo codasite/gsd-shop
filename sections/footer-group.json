@@ -2,33 +2,6 @@
   "type": "footer",
   "name": "Footer group",
   "sections": {
-    "brand-logos": {
-      "type": "brand-logos",
-      "blocks": {
-        "brand_dermatology": {
-          "type": "brand",
-          "settings": {
-            "default_image": "gsd-brand-dermatology.png",
-            "name": "GOLDEN STATE DERMATOLOGY"
-          }
-        },
-        "brand_dermatopathology": {
-          "type": "brand",
-          "settings": {
-            "default_image": "gsd-brand-dermatopathology.png",
-            "name": "GOLDEN STATE DERMATOPATHOLOGY"
-          }
-        },
-        "brand_plasticsurgery": {
-          "type": "brand",
-          "settings": {
-            "default_image": "gsd-brand-plasticsurgery.png",
-            "name": "GOLDEN STATE PLASTIC SURGERY"
-          }
-        }
-      },
-      "block_order": ["brand_dermatology", "brand_dermatopathology", "brand_plasticsurgery"]
-    },
     "gold-banner": {
       "type": "gold-banner",
       "settings": {}
@@ -38,5 +11,5 @@
       "settings": {}
     }
   },
-  "order": ["brand-logos", "gold-banner", "footer"]
+  "order": ["gold-banner", "footer"]
 }
