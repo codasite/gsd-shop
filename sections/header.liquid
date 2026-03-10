@@ -23,6 +23,13 @@
       {% endif %}
     </nav>
 
+    <form action="/search" method="get" class="header-search">
+      <input type="text" name="q" placeholder="Search..." aria-label="Search" class="header-search-input">
+      <button type="submit" class="header-search-btn" aria-label="Search">
+        {% render 'icon-search' %}
+      </button>
+    </form>
+
     <button class="mobile-menu-toggle" aria-label="Menu" aria-expanded="false">
       <span class="hamburger"></span>
     </button>
