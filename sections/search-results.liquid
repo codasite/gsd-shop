@@ -1,0 +1,56 @@
+<section class="search-section" data-section-id="{{ section.id }}">
+  <div class="section-wrapper">
+    <h1 class="search-heading">Search</h1>
+
+    <form action="/search" method="get" class="search-form">
+      <div class="search-input-wrapper">
+        <input type="text" name="q" value="{{ search.terms | escape }}" placeholder="Search products..." class="search-input" aria-label="Search">
+        <button type="submit" class="search-submit" aria-label="Search">
+          {% render 'icon-search' %}
+        </button>
+      </div>
+    </form>
+
+    {% if search.performed %}
+      {% if search.results_count > 0 %}
+        <p class="search-results-count">{{ search.results_count }} result{{ search.results_count | pluralize: '', 's' }} for "{{ search.terms }}"</p>
+
+        <div class="search-results-grid">
+          {% for item in search.results %}
+            {% if item.object_type == 'product' %}
+              {% assign product = item %}
+              {% render 'product-card', product: product %}
+            {% else %}
+              <div class="search-result-item">
+                <a href="{{ item.url }}">
+                  <h3 class="search-result-title">{{ item.title }}</h3>
+                </a>
+                {% if item.content != blank %}
+                  <p class="search-result-excerpt">{{ item.content | strip_html | truncatewords: 30 }}</p>
+                {% endif %}
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+
+        {% if search.results_count > search.results.size %}
+          <div class="search-pagination">
+            {{ paginate | default_pagination }}
+          </div>
+        {% endif %}
+      {% else %}
+        <div class="search-empty">
+          <p>No results found for "{{ search.terms }}".</p>
+          <p>Try a different search term or <a href="/collections">browse our collections</a>.</p>
+        </div>
+      {% endif %}
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Search Results",
+  "settings": []
+}
+{% endschema %}
