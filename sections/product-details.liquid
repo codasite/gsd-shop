@@ -1,3 +1,30 @@
+{% style %}
+  .product-custom-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .product-custom-fields .custom-field label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 4px;
+    font-size: 14px;
+  }
+  .product-custom-fields .custom-field input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: inherit;
+  }
+  .product-custom-fields .custom-field input:focus {
+    outline: none;
+    border-color: #333;
+  }
+{% endstyle %}
+
 <section class="product-details" data-section-id="{{ section.id }}">
   <div class="section-wrapper">
     <nav class="breadcrumb">
@@ -50,6 +77,23 @@
 
         {% assign min_qty = product.metafields.custom.min_quantity.value | default: 1 %}
         {% assign max_qty = product.metafields.custom.max_quantity.value %}
+
+        {% assign custom_fields = product.metafields.custom.custom_fields.value %}
+        {% if custom_fields and custom_fields.size > 0 %}
+          <div class="product-custom-fields">
+            {% for field_label in custom_fields %}
+              <div class="custom-field">
+                <label for="custom-field-{{ field_label | handleize }}">{{ field_label }}</label>
+                <input
+                  type="text"
+                  id="custom-field-{{ field_label | handleize }}"
+                  name="properties[{{ field_label }}]"
+                  placeholder="Enter {{ field_label | downcase }}"
+                >
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
 
         <div class="product-add-row">
           <div class="product-quantity">
