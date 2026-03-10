@@ -1,5 +1,30 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
-  "current": "Default",
+  "current": {
+    "color_navy": "#002442",
+    "color_gold": "#ffbf00",
+    "color_product_title": "#6799b2",
+    "color_button": "#666666",
+    "color_body_text": "#404040",
+    "color_background": "#ffffff",
+    "color_light_gray": "#f2f2f2",
+    "content_for_index": [],
+    "blocks": {
+      "316487575649303945": {
+        "type": "shopify://apps/easify-options/blocks/app-embed-block/d2288b18-c1ba-42f5-b3b3-26c75c8820bf",
+        "disabled": false,
+        "settings": {}
+      }
+    }
+  },
   "presets": {
     "Default": {
       "color_navy": "#002442",
