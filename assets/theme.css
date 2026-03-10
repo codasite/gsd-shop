@@ -646,7 +646,7 @@ img {
    - Bottom bar: white shop logo left, contact text right, 75px bottom padding */
 
 .footer-gold-section {
-  height: 400px;
+  height: 200px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -894,7 +894,7 @@ img {
   }
 
   .footer-gold-section {
-    height: 200px;
+    height: 100px;
   }
 
   .footer-bottom {
